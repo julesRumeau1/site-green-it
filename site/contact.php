@@ -32,11 +32,6 @@ $pageTitle = 'Contact — Scierie';
       <button class="btn" type="submit">Envoyer</button>
       <p id="contact-status" class="muted" aria-live="polite"></p>
     </form>
-
-    <section class="notice" aria-label="Astuce">
-      <h2>Astuce</h2>
-      <p class="muted">Le formulaire enregistre votre message dans la base (table <code>support</code>).</p>
-    </section>
   </main>
 
   <?php require_once __DIR__ . '/includes/footer.php'; ?>
