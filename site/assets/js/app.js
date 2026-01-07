@@ -11,7 +11,7 @@
 
   // Helpers
   const qs = (sel) => document.querySelector(sel);
-  const csrf = () => (qs('meta[name="csrf-token"]')?.getAttribute('content') || '');
+  const csrf = () => (qs('meta[name="csrf-token"]')?.getAttribute('content') || qs('input[name="csrf"]')?.value || '');
 
   // Produits: chargement async
   const productsRoot = qs('[data-products]');
