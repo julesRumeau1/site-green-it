@@ -1,163 +1,56 @@
-﻿<?php
-session_start();
+<?php
+require_once __DIR__ . '/src/bootstrap.php';
+$pageTitle = 'Connexion — Scierie';
+$loggedIn = !empty($_SESSION['id']);
 ?>
 <!DOCTYPE html>
-
 <html lang="fr">
-
 <head>
-	<title>TEST GREEN IT</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <?php require_once __DIR__ . '/includes/head.php'; ?>
 </head>
-
 <body>
+<div class="page">
+  <?php require_once __DIR__ . '/includes/nav.php'; ?>
 
-	<section>
-<!--*************** MENU ***************-->
-<nav class="navbar">
-	<li class="toggle">
-		<ul class ="toggle-item"><i class="fa fa-bars menu" aria-hidden="true"> </i></ul>
-	</li>
-   <ul class="nav-links">
-      	<li class="nav-item"><a href="index.php">ACCUEIL</a></li>
-      	<li class="nav-item"><a href="produits.php">LES PRODUITS</a></li>
-	  	<li class="nav-item"><a href="video.php">VIDEO</a></li>
-		<li class="nav-item"><a href="contact.php">NOUS CONTACTER</a></li>
-<?php 
-	if (isset($_SESSION['id'])) {	
-		echo "<li class='nav-item'><a href='administration.php'>ADMINISTRATION</a></li>";
-	}
-	if(isset($_SESSION['id'])) {
-		echo "<li class='nav-item'><a href='deconnexion.php'>DECONNEXION</a></li>";
-	}else{
-		echo "<li class='nav-item'><a href='connexion.php'>CONNEXION</a></li>";
-	}
-?>
-    </ul>
+  <main class="container">
+    <h1>Connexion</h1>
 
-	<img src="./images/scierie.gif" style="width:70px; margin:5px;">
-</nav>
+    <?php if ($loggedIn): ?>
+      <p class="notice">Vous êtes déjà connecté en tant que <strong><?= Utils::e($_SESSION['id']) ?></strong>.</p>
+    <?php endif; ?>
 
+    <section class="grid">
+      <div class="notice">
+        <h2>Se connecter</h2>
+        <form class="form" data-auth="login" method="post" action="api/auth.php" novalidate>
+          <input type="hidden" name="csrf" value="<?= Utils::e(Csrf::token()) ?>">
+          <label for="userId">Identifiant</label>
+          <input id="userId" name="userId" autocomplete="username" required>
+          <label for="password">Mot de passe</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required>
+          <button class="btn" type="submit">Connexion</button>
+          <p id="auth-status" class="muted" aria-live="polite"></p>
+        </form>
+      </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script type="text/javascript">
+      <div class="notice">
+        <h2>Créer un compte</h2>
+        <form class="form" data-auth="signup" method="post" action="api/signup.php" novalidate>
+          <input type="hidden" name="csrf" value="<?= Utils::e(Csrf::token()) ?>">
+          <label for="newUserId">Identifiant</label>
+          <input id="newUserId" name="userId" autocomplete="username" required>
+          <label for="newPassword">Mot de passe</label>
+          <input id="newPassword" name="password" type="password" autocomplete="new-password" required>
+          <label for="newPassword2">Confirmer</label>
+          <input id="newPassword2" name="password2" type="password" autocomplete="new-password" required>
+          <button class="btn" type="submit">Inscription</button>
+          <p id="signup-status" class="muted" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
 
-	$(document).ready(function(){
-
-		$('.menu').click(function(){
-			
-			$('ul').toggleClass('active');
-		})
-	})
-
-</script> 
-<!--*************** END MENU ***************-->
-	</section>
-	
-	<div class="forms">
-
-		<ul class="onglets">
-		    <li class="onglet active"><a href="#login">Connexion</a></li>
-		    <li class="onglet"><a href="#sinscrire">Inscription</a></li>
-		</ul>
-
-		<form action="controleur/traitementFormConnexion.php" method="GET" id="login">
-			<h1>Connexion</h1>
-            <span class="err">
-				<?php
-					if (isset($_SESSION['errCnx'])) {
-						echo $_SESSION['errCnx'];
-						$_SESSION['errCnx'] = "";
-					}
-					
-					if (isset($_SESSION['creationOk'])) {
-						echo $_SESSION['creationOk'];
-						$_SESSION['creationOk'] = "";
-					}
-					
-					if (isset($_SESSION['creationNok'])) {
-						echo $_SESSION['creationNok'];
-						$_SESSION['creationNok'] = "";
-					}
-					
-				?>
-            </span>
-			<div class="input-field">
-
-				<label for="idUtil">Identifiant</label>
-				<input type="text" placeholder="Entrer le nom d'utilisateur" name="idUtil" id="idUtil" required>
-
-				<label for="mdpUtil">Mot de Passe</label> 
-				<input type="password" placeholder="Entrer le mot de passe" name="mdpUtil" id="mdpUtil" required>
-
-				<input type="submit" value="Se connecter" class="button">
-				
-
-			</div>
-		</form>
-
-		<form action="controleur/traitementFormInscription.php" id="sinscrire" method="GET">
-			<h1>S'inscrire</h1>
-			<span class="err">
-				<?php
-					if (isset($_SESSION['errMdp'])) {
-						echo $_SESSION['errMdp'];
-						$_SESSION['errMdp'] = "";
-					}
-					if (isset($_SESSION['errId'])) {
-						echo $_SESSION['errId'];
-						$_SESSION['errId'] = "";
-					}
-				?>
-            </span>
-			<div class="input-field">
-	            <label for="idUtilCreation">Identifiant</label> 
-	            <input type="text" placeholder="Choisir un nom d'utilisateur" name="idUtilCreation" id="idUtilCreation" required>
-
-	            <label for="pwdCreation">Mot de Passe</label> 
-	            <input type="password" placeholder="Choisir un mot de passe" name="pwdCreation" id="pwdCreation" required>
-
-	            <label for="pwdBis">Confirmez le Mot de Passe</label> 
-	            <input type="password" placeholder="Ressaisir le mot de passe" name="pwdBis" id="pwdBis" required>
-	            
-	            <input type="submit" value="S'inscrire" class="button" />
-			</div>
-	    </form>
-	</div>
-
-<!--*************** PIED DE PAGE ***************-->
-<footer id="footer">
-<ul class="footer-links">
-    <li class="footer-item">©Projet 3iL</li>
-    <li class="footer-item"><a href="#" target="_blank"><img id="logo" src="images/facebook.png"></a></li>
-    <li class="footer-item">Site test</li>
-<ul/>
-</footer>
-<!--*************** PIED DE PAGE ***************-->
-
-	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-	<script type="text/javascript">
-	$(document).ready(function(){
-	      $('.onglet a').on('click', function (e) {
-	      e.preventDefault();
-	       
-	      $(this).parent().addClass('active');
-	      $(this).parent().siblings().removeClass('active');
-	       
-	      var href = $(this).attr('href');
-	      $('.forms > form').hide();
-	      $(href).fadeIn(333);
-	    });
-	});
-</script>
-
+  <?php require_once __DIR__ . '/includes/footer.php'; ?>
+</div>
 </body>
-
 </html>
-
-
-
-
