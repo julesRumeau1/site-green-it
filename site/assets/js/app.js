@@ -32,8 +32,6 @@
           const img = document.createElement('img');
           img.loading = 'lazy';
           img.decoding = 'async';
-          img.width = 600;
-          img.height = 400;
           img.alt = '';
           img.src = `assets/img/${p.img_basename}.jpg`;
           pic.appendChild(source);

@@ -27,7 +27,7 @@ $pageTitle = 'Accueil — Scierie';
 
       <picture>
         <source type="image/webp" srcset="assets/img/img4.webp" />
-        <img src="assets/img/img4.jpg" width="540" height="360" alt="Planche de bois" loading="lazy" decoding="async">
+        <img src="assets/img/img4.jpg" alt="Planche de bois" loading="lazy" decoding="async">
       </picture>
     </section>
   </main>
