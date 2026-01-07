@@ -17,10 +17,6 @@ $pageTitle = 'Accueil — Scierie';
     <section class="hero" aria-label="Présentation">
       <div>
         <p>
-          Ce site a été refondu pour réduire son impact : HTML et CSS simplifiés, moins de scripts,
-          images optimisées et chargement asynchrone.
-        </p>
-        <p>
           <a class="btn" href="produits.php">Voir les produits</a>
         </p>
       </div>
