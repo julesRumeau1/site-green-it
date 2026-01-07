@@ -29,6 +29,8 @@ $loggedIn = !empty($_SESSION['id']);
           <label for="password">Mot de passe</label>
           <input id="password" name="password" type="password" autocomplete="current-password" required>
           <button class="btn" type="submit">Connexion</button>
+          <br/>
+          <br/>
           <p id="auth-status" class="muted" aria-live="polite"></p>
         </form>
       </div>
@@ -44,6 +46,8 @@ $loggedIn = !empty($_SESSION['id']);
           <label for="newPassword2">Confirmer</label>
           <input id="newPassword2" name="password2" type="password" autocomplete="new-password" required>
           <button class="btn" type="submit">Inscription</button>
+          <br/>
+          <br/>
           <p id="signup-status" class="muted" aria-live="polite"></p>
         </form>
       </div>
