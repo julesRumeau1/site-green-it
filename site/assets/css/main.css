@@ -173,3 +173,20 @@ label{ display:block; margin:.85rem 0 .35rem; font-weight:600; }
 .link:hover{
   text-decoration-thickness: 2px;
 }
+
+.card picture img {
+  display: block;
+  height: auto;
+  width: auto;
+  max-width: 100%;
+}
+
+@media (max-width: 640px) {
+  .card picture img {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+}
+
+
