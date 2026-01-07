@@ -50,7 +50,7 @@ $loggedIn = !empty($_SESSION['id']);
           <button class="btn" type="submit">Inscription</button>
           <p id="signup-status" class="muted" aria-live="polite"></p>
         </form>
-      </div>
+      </div>  
     </section>
   </main>
 
