@@ -1,78 +1,33 @@
 <?php
-session_start();
+require_once __DIR__ . '/src/bootstrap.php';
+$pageTitle = 'Vidéo — Scierie';
 ?>
 <!DOCTYPE html>
-
 <html lang="fr">
-	<head>
-		<title>TRUC</title>
-		<link rel="stylesheet" href="style.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-	</head>
+<head>
+  <?php require_once __DIR__ . '/includes/head.php'; ?>
+</head>
+<body>
+<div class="page">
+  <?php require_once __DIR__ . '/includes/nav.php'; ?>
 
-	<body>
-	<!--*************** MENU ***************-->
-<nav class="navbar">
-	<li class="toggle">
-		<ul class ="toggle-item"><i class="fa fa-bars menu" aria-hidden="true"> </i></ul>
-	</li>
-   <ul class="nav-links">
-      	<li class="nav-item"><a href="index.php">ACCUEIL</a></li>
-      	<li class="nav-item"><a href="produits.php">LES PRODUITS</a></li>
-	  	<li class="nav-item"><a href="video.php">VIDEO</a></li>
-		<li class="nav-item"><a href="contact.php">NOUS CONTACTER</a></li>
-<?php 
-	if (isset($_SESSION['id'])) {	
-		echo "<li class='nav-item'><a href='administration.php'>ADMINISTRATION</a></li>";
-	}
-	if(isset($_SESSION['id'])) {
-		echo "<li class='nav-item'><a href='deconnexion.php'>DECONNEXION</a></li>";
-	}else{
-		echo "<li class='nav-item'><a href='connexion.php'>CONNEXION</a></li>";
-	}
-?>
-    </ul>
+  <main class="container">
+    <h1>Vidéo</h1>
+    <p>Cliquez sur la miniature pour ouvrir la vidéo.</p>
 
-	<img src="./images/scierie.gif" style="width:70px; margin:5px;">
-</nav>
+    <a class="hero" href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir la vidéo sur YouTube">
+      <picture>
+        <source type="image/webp" srcset="assets/img/img1.webp" />
+        <img src="assets/img/img1.jpg" width="960" height="540" alt="Miniature de la vidéo" loading="lazy" decoding="async">
+      </picture>
+      <div class="notice" style="margin:0;">
+        <strong>Voir la vidéo</strong>
+        
+      </div>
+    </a>
+  </main>
 
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script type="text/javascript">
-
-	$(document).ready(function(){
-
-		$('.menu').click(function(){
-			
-			$('ul').toggleClass('active');
-		})
-	})
-
-</script> 
-<!--*************** END MENU ***************-->
-		<div style="text-align: center;">
-			<iframe 
-  				width="500" 
-  				height="281" 
-  				src="https://www.youtube.com/embed/dbHXPnhCicI?autoplay=1&mute=1" 
-  				title="YouTube video player" 
-  				frameborder="0" 
-  				allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-  				allowfullscreen>
-			</iframe>
-		</div>
-
-		<!--*************** PIED DE PAGE ***************-->
-<footer id="footer">
-<ul class="footer-links">
-    <li class="footer-item">©Projet 3iL</li>
-    <li class="footer-item"><a href="#" target="_blank"><img id="logo" src="images/facebook.png"></a></li>
-    <li class="footer-item">Site test</li>
-<ul/>
-</footer>
-<!--*************** PIED DE PAGE ***************-->
-
-	</body>
-
+  <?php require_once __DIR__ . '/includes/footer.php'; ?>
+</div>
+</body>
 </html>
