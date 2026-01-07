@@ -11,7 +11,7 @@
 
   // Helpers
   const qs = (sel) => document.querySelector(sel);
-  const csrf = () => (qs('meta[name="csrf-token"]')?.getAttribute('content') || '');
+  const csrf = () => (qs('meta[name="csrf-token"]')?.getAttribute('content') || qs('input[name="csrf"]')?.value || '');
 
   // Produits: chargement async
   const productsRoot = qs('[data-products]');
@@ -33,7 +33,7 @@
           img.loading = 'lazy';
           img.decoding = 'async';
           img.width = 600;
-          img.height = 360;
+          img.height = 400;
           img.alt = '';
           img.src = `assets/img/${p.img_basename}.jpg`;
           pic.appendChild(source);
