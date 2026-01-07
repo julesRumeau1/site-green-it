@@ -16,18 +16,17 @@ $loggedIn = !empty($_SESSION['id']);
     <h1>Administration</h1>
 
     <?php if (!$loggedIn): ?>
-      <p class="notice">Veuillez vous connecter pour accéder à cette page. (L'espace admin n'est pas fonctionnel.)</p>
+      <p class="notice">Veuillez vous connecter pour accéder à cette page.</p>
     <?php else: ?>
-      <p class="notice">Cet espace est volontairement non fonctionnel (consigne du challenge) mais l'interface est homogène.</p>
       <section class="grid">
         <div class="notice">
           <h2>Contenu</h2>
-          <p class="muted">Exemple d'emplacement pour gérer le contenu (désactivé).</p>
+          <p class="muted">Exemple d'emplacement pour gérer le contenu.</p>
           <button class="btn" type="button" disabled>Modifier (désactivé)</button>
         </div>
         <div class="notice">
           <h2>Produits</h2>
-          <p class="muted">Exemple d'emplacement pour gérer les produits (désactivé).</p>
+          <p class="muted">Exemple d'emplacement pour gérer les produits.</p>
           <button class="btn" type="button" disabled>Ajouter (désactivé)</button>
         </div>
       </section>

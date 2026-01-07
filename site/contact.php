@@ -14,22 +14,22 @@ $pageTitle = 'Contact — Scierie';
   <main class="container">
     <h1>Nous contacter</h1>
 
-    <section class="contact-grid" aria-label="Informations de contact">
-      <div class="card">
+    <section class="grid" aria-label="Informations de contact">
+      <div class="notice">
         <p class="card-title">Email</p>
         <p class="card-text">
           <a class="link" href="mailto:scierie.gineste@wanadoo.fr">scierie.gineste@wanadoo.fr</a>
         </p>
       </div>
 
-      <div class="card">
+      <div class="notice">
         <p class="card-title">Téléphone</p>
         <p class="card-text">
           <a class="link" href="tel:+33970355409">+33 9 70 35 54 09</a>
         </p>
       </div>
 
-      <div class="card">
+      <div class="notice">
         <p class="card-title">Adresse</p>
         <p class="card-text">
           Route de Rodez<br>
