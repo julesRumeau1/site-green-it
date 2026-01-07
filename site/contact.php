@@ -14,24 +14,36 @@ $pageTitle = 'Contact — Scierie';
   <main class="container">
     <h1>Nous contacter</h1>
 
-    <form class="form" data-contact method="post" action="api/contact.php" novalidate>
-      <input type="hidden" name="csrf" value="<?= Utils::e(Csrf::token()) ?>">
+    <section class="contact-grid" aria-label="Informations de contact">
+      <div class="card">
+        <p class="card-title">Email</p>
+        <p class="card-text">
+          <a class="link" href="mailto:scierie.gineste@wanadoo.fr">scierie.gineste@wanadoo.fr</a>
+        </p>
+      </div>
 
-      <label for="nom">Nom</label>
-      <input id="nom" name="nom" autocomplete="name" required>
+      <div class="card">
+        <p class="card-title">Téléphone</p>
+        <p class="card-text">
+          <a class="link" href="tel:+33970355409">+33 9 70 35 54 09</a>
+        </p>
+      </div>
 
-      <label for="email">Email</label>
-      <input id="email" name="email" type="email" autocomplete="email" required>
-
-      <label for="sujet">Sujet</label>
-      <input id="sujet" name="sujet" required>
-
-      <label for="message">Message</label>
-      <textarea id="message" name="message" required></textarea>
-
-      <button class="btn" type="submit">Envoyer</button>
-      <p id="contact-status" class="muted" aria-live="polite"></p>
-    </form>
+      <div class="card">
+        <p class="card-title">Adresse</p>
+        <p class="card-text">
+          Route de Rodez<br>
+          12220 Montbazens<br>
+          France
+        </p>
+        <p class="muted" style="margin-top:.5rem;">
+          <a class="link" target="_blank" rel="noopener"
+             href="https://www.google.com/maps/search/?api=1&query=Route%20de%20Rodez%2012220%20Montbazens">
+            Voir sur la carte
+          </a>
+        </p>
+      </div>
+    </section>
   </main>
 
   <?php require_once __DIR__ . '/includes/footer.php'; ?>

@@ -142,3 +142,34 @@ label{ display:block; margin:.85rem 0 .35rem; font-weight:600; }
   .site-nav{ display:none; }
   .site-nav.is-open{ display:flex; }
 }
+
+.contact-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:1rem;
+  margin-top:1rem;
+}
+
+.contact-grid .card{
+  flex:1 1 260px;
+}
+
+.card-title{
+  font-weight: 700;
+  color: var(--green-800, #145a2c);
+  margin: 0 0 .5rem 0;
+}
+
+.card-text{
+  margin:0;
+}
+
+.link{
+  color: var(--green-800, #145a2c);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.link:hover{
+  text-decoration-thickness: 2px;
+}
