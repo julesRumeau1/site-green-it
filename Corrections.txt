@@ -1,0 +1,18 @@
+Pas de balise H1
+Injection SQL au niveau de l'espace de connection.
+Données sensibles passées dans l'URL. Mdp et pwd. dans la page de connexion par méthode GET.
+Injection de script au niveau de l'espace de connection.
+Simplification de l'espace de connexion, suppression des onglets et refonte plus simple.
+Suppression des liens CDN dans le HEAD et utilisation de polices élémentaires (Arial).
+Suppression des UL dont les items peuvent être à la racine directe d'un conteneur type NAV ou FOOTER, 
+engendrant la simplification CSS.
+CSS en Flex.
+Tout en AJAX.
+Gif annimé du menu pas nécessaire.
+Titre des différentes page différent. <TITLE>
+FOOTER Plaqué en bas de page.
+VIDEO : lancement automatique à supprimer, intégrer l'image de la vidéo et se ramener sur une page 
+youtube au autre page l'intégrant.
+Intégerer le code du NAV et du FOOTER dans deux fichiers PHP à intégrer en require_once().
+Refonte de la page contact.php.
+PHP en classes.
